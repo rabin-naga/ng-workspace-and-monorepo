@@ -2,26 +2,39 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
-## Development server
+## To merge changes only of app-one project from dev branch to main branch, you can follow these steps:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<b> Step 1: Checkout the target branch </b> <br/>
+First, switch to the branch where you want to merge the changes. <br/>
 
-## Code scaffolding
+- git checkout `<target-branch>`
+  <br/> For eg: <b> git checkout main </b>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<br/>
+<hr>
+<b> Step 2: Use git checkout to checkout only the specific project </b> <br/>
+You can use git checkout with a path to apply changes from a specific directory (project) on another branch:
 
-## Build
+- git checkout `<source-branch>` -- `path/to/project`
+  <br/><i> This will stage the changes from path/to/project from source-branch into your working directory on target-branch. </i>
+  <br/> For eg: <b>git checkout dev -- projects/app-one </b>
+  <br/><i> This will stage the changes from app-one project only to main branch. </i>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<br/>
+<hr>
+<b>Step 3: Commit the changes</b>
+<br/>After checking out the specific project, you need to commit the changes.
 
-## Running unit tests
+- git add `path/to/project`
+  <br/> For eg: <b>git add projects/app-one</b>
+  <br/>
+- git commit -m "Merged changes from project X from source-branch"
+  <br/> For eg: <b>git commit -m "App one dev to main "</b>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<br/>
+<hr>
+<b>Step 4: Push the changes</b>
+<br/>Finally, push the changes to the remote repository.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- git push origin `<target-branch>`
+  <br/> For eg: <b>git push origin main</b>
